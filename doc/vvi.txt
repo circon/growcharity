@@ -1,0 +1,62 @@
+Ready to generate.
+----------------------------------------------------------------------
+Once finished, don't forget to:
+
+- Add an observer to config/environment.rb
+    config.active_record.observers = :user_observer
+- Add routes to these resources. In config/routes.rb, insert routes like:
+    map.signup '/signup', :controller => 'users', :action => 'new'
+    map.login  '/login',  :controller => 'sessions', :action => 'new'
+    map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+    map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+
+----------------------------------------------------------------------
+
+We've create a new site key in config/initializers/site_keys.rb.  If you have existing
+user accounts their passwords will no longer work (see README). As always,
+keep this file safe but don't post it in public.
+
+----------------------------------------------------------------------
+      create  app/models/
+      exists  app/controllers/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/sessions
+      create  app/views/user_mailer
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/users
+      exists  config/initializers
+      create  test/functional/
+      exists  test/functional/
+      create  test/unit/
+      create  test/fixtures/
+      create  app/models/user.rb
+      create  app/models/user_mailer.rb
+      create  app/models/user_observer.rb
+      create  app/controllers/sessions_controller.rb
+      create  app/controllers/users_controller.rb
+      create  lib/authenticated_system.rb
+      create  lib/authenticated_test_helper.rb
+      create  config/initializers/site_keys.rb
+      create  test/functional/sessions_controller_test.rb
+      create  test/functional/users_controller_test.rb
+      create  test/unit/user_test.rb
+      create  test/unit/user_mailer_test.rb
+      create  test/fixtures/users.yml
+      create  app/helpers/sessions_helper.rb
+      create  app/helpers/users_helper.rb
+      create  app/views/sessions/new.html.erb
+      create  app/views/users/new.html.erb
+      create  app/views/users/_user_bar.html.erb
+      create  app/views/user_mailer/activation.erb
+      create  app/views/user_mailer/signup_notification.erb
+      create  db/migrate
+      create  db/migrate/20080924084657_create_users.rb
+       route  map.resource :session
+       route  map.resources :users
+       route  map.signup '/signup', :controller => 'users', :action => 'new'
+       route  map.register '/register', :controller => 'users', :action => 'create'
+       route  map.login '/login', :controller => 'sessions', :action => 'new'
+       route  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+

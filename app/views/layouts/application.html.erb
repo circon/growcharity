@@ -1,0 +1,35 @@
+<html>
+  
+  <head>  
+    <title> GrowCharity Education</title>
+  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag 'scaffold' %>
+  </head>
+  
+  <body>
+    
+    <% if flash[:notice] %><%= flash[:notice] %> <% end %>
+    <% if flash[:error] %><%= flash[:error] %> <% end %>
+    
+    
+    <fieldset>
+       <% if current_user %>
+           <%= current_user.admin?? "Logged in as admin("+current_user.login+")" :"Logged in as "+current_user.login %>  
+           <%= link_to "Logout", logout_path %>
+       <%else%>
+           <%= link_to "Login", login_path %>
+       <%end%>
+    </fieldset>
+    
+    
+    <% if logged_in? && current_user.admin? %>
+    <fieldset>       
+           <%= link_to "Manage Courses", courses_path %>       
+    </fieldset>
+    <% end  %>
+
+    <%= yield %>
+
+  </body>
+  
+</html>
